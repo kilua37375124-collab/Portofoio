@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Skills - ADAM</title>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">ADAM</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fa fa-bars"></i>
+      </div>
+      <nav>
+      <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+        <a href="jasa.html">jasa</a>
+      </nav>
+    </header>
+
+   <section class="skills">
+  <h1> JASA </h1>
+
+  <div class="skills-container">
+
+    <div class="skill-box">
+      <h2>JOKI ISIAN FF AUTO WIN</h2>
+      <p>jasa joki ff mulai dari isian, ft, rank, dan guild war</p>
+
+      <a 
+  href="https://wa.me/6281617311089?text=Halo,%20King%20Adam.%20Saya%20ingin%20order%20joki%20FF%20nih."
+  target="_blank"
+>
+  <button class="skill-btn">WhatsApp</button>
+</a>
+    </div>
+
+    <div class="skill-box">
+      <h2>NGUREK</h2>
+      <p>jasa ngurek auto streak.</p>
+
+      <a 
+  href="https://wa.me/6281617311089?text=Halo,%20Bang%20Adam%20ganteng.%20Saya%20mau%20joki%20ngurek%20nih."
+  target="_blank"
+>
+  <button class="skill-btn">WhatsApp</button>
+</a>
+    </div>
+
+    
+    
+
+  </div>
+</section>
+    <style>
+      body {
+        background-color: #191919;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        padding: 1rem 9%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: white;
+        margin-left: 4rem;
+        font-size: 1.8rem;
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        transition: 0.3s ease;
+      }
+
+      nav a.active {
+        color: #e3651d;
+        border-bottom: 3px solid #e3651d;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          padding: 1rem 0;
+          z-index: 1000;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          margin: 1rem 0;
+          font-size: 1.6rem;
+          text-align: center;
+        }
+      }
+
+      .skills {
+        padding: 10rem 9% 5rem;
+        text-align: center;
+      }
+
+      .skills h1 {
+        font-size: 4rem;
+        margin-bottom: 4rem;
+      }
+
+      .skills {
+  padding: 7rem 9%;
+  text-align: center;
+}
+
+.skills h1 {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-box {
+  background: #e3651d;
+  padding: 2rem;
+  border-radius: 20px;
+  color: white;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(227, 101, 29, 0.5);
+}
+
+.skill-box:hover {
+  transform: translateY(-10px);
+}
+
+.skill-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-box p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.skill-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: #e3651d;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.skill-btn:hover {
+  background: #222;
+  color: white;
+}
+      }
+    </style>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const nav = document.querySelector("nav");
+
+      mobileMenu.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
