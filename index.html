@@ -12,37 +12,35 @@
   </head>
   <body>
     <header>
-      <a href="#" class="logo">RIPAL IPANDI</a>
+      <a href="#" class="logo">ADAM</a>
       <nav>
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="skills.html">Skills</a>
-        <a href="education.html">Education</a>
-        <a href="experience.html">Experience</a>
         <a href="contact.html">Contact</a>
+        <a href="jasa.html">jasa</a>
       </nav>
     </header>
-
     <section class="home">
       <div class="home-img">
-        <img src="L" alt="Profile Picture" />
+        <img
+          src="https://ibb.co.com/NdtV3vMz"
+          alt="Profile Picture"
+        />
       </div>
-
       <div class="home-content">
-        <h1>Hi, It's <span>RIPAL IPANDI</span></h1>
+        <h1>Hi, It's <span>adam reina</span></h1>
         <h3 class="typing-text"><span></span><span class="cursor">|</span></h3>
-
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore
-          dolores esse. Odit similique doloribus tenetur doloremque, sunt
-          commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam
-          quaerat neque asperiores ea.
+          Selamat datang di website profil pribadi saya
         </p>
-
         <div class="social-icons">
-          <a href="https://www.instagram.com/ripalipandi14?utm_source=qr&igsh=MWpwNnZhbjR0bDN3dQ== class="fa-brands fa-instagram"></i></a>
-          <a href="https://tiktok.com/@palltzyyy91"><i class="fa-brands fa-tiktok"></i></a>
-
+         
+          <a href="https://github.com/adamhengker/"><i class="fa-brands fa-github"></i></a>
+          
+          <a href="https://www.instagram.com/reina4j"><i class="fa-brands fa-instagram"></i></a>
+           <a href="https://www.tiktok.com/reina4j"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
         <a href="#" class="btn">Hire me</a>
       </div>
     </section>
@@ -51,7 +49,7 @@
       // Typing effect for typing-text
       const typingText = document.querySelector(".typing-text span");
       const cursor = document.querySelector(".cursor");
-      const words = ["Ripal si paling anomali ff "];
+      const words = ["SI COWO cool"];
       let wordIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
@@ -63,15 +61,15 @@
           : currentWord.substring(0, charIndex++);
 
         typingText.textContent = displayedText;
-        cursor.style.left = `${typingText.offsetWidth}px`;
+        cursor.style.left = `${typingText.offsetWidth}px`; // Update cursor position
 
         if (!isDeleting && charIndex === currentWord.length) {
           isDeleting = true;
-          setTimeout(typeEffect, 2000);
+          setTimeout(typeEffect, 2000); // Pause before deleting
         } else if (isDeleting && charIndex === 0) {
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(typeEffect, 500);
+          setTimeout(typeEffect, 500); // Pause before typing next word
         } else {
           setTimeout(typeEffect, isDeleting ? 100 : 200);
         }
