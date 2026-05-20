@@ -1,7 +1,12 @@
-/* Import Font dari Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+/* --- Reset & Variabel CSS --- */
+:root {
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: #fff;
+  --main-color: #0ef; /* Warna aksen cyan */
+  --nav-bg: rgba(31, 36, 45, 0.95);
+}
 
-/* --- Reset & Global Styles --- */
 * {
   margin: 0;
   padding: 0;
@@ -9,248 +14,229 @@
   text-decoration: none;
   border: none;
   outline: none;
-  font-family: "Poppins", sans-serif;
-}
-
-html {
-  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  width: 100%;
-  height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
   overflow-x: hidden;
-  background-color: #191919;
-  color: white;
 }
 
-/* --- Header & Navigation --- */
+/* --- Header & Navigasi --- */
 header {
-  margin-top: 20px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 9%;
-  background-color: transparent;
+  padding: 1.5rem 9%;
+  background: var(--nav-bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
-  font-size: 3rem;
-  color: #e3651d;
-  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--text-color);
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: 0.3s;
 }
 
-.logo:hover {
-  transform: scale(1.1);
+.logo span {
+  color: var(--main-color);
 }
 
 nav a {
-  font-size: 1.8rem;
-  color: white;
-  margin-left: 4rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-left: 2rem;
   font-weight: 500;
-  transition: 0.3s ease;
-  border-bottom: 3px solid transparent;
+  transition: 0.3s;
+  position: relative;
 }
 
 nav a:hover,
 nav a.active {
-  color: #e3651d;
-  border-bottom: 3px solid #e3651d;
+  color: var(--main-color);
 }
 
-/* --- Mobile Navigation Menu --- */
-@media (max-width: 995px) {
-  nav {
-    position: absolute;
-    display: none;
-    top: 0;
-    right: 0;
-    width: 40%;
-    border-left: 3px solid #e3651d;
-    border-bottom: 3px solid #e3651d;
-    border-bottom-left-radius: 2rem;
-    padding: 1rem;
-    background-color: #161616;
-  }
-
-  nav.active {
-    display: block;
-  }
-
-  nav a {
-    display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
-  }
-
-  nav a:hover,
-  nav a.active {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border-bottom: 0.5rem solid #e3651d;
-  }
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: 0.3s;
 }
 
-/* --- Section General --- */
-section {
-  min-height: 100vh;
-  padding: 5rem 9% 5rem;
+nav a:hover::after {
+  width: 100%;
 }
 
-/* --- Home Section --- */
+/* --- Section Home (Layout Utama) --- */
 .home {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8rem;
-  background-color: #191919;
+  min-height: 100vh;
+  padding: 8rem 9% 2rem;
+  gap: 5rem; /* Jarak antara teks dan gambar */
+}
+
+.home-content {
+  max-width: 600px;
+  z-index: 1;
 }
 
 .home-content h1 {
-  font-size: 6rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
+.home-content h1 span {
+  color: var(--main-color);
+}
+
 .home-content h3 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
   font-weight: 700;
+  margin: 1rem 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(var(--text-color), var(--main-color));
+}
+
+.typing-text {
+  position: relative;
+  display: inline-block;
+  min-height: 2.5rem; /* Mencegah layout shift */
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: var(--main-color);
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .home-content p {
-  font-size: 1.6rem;
+  font-size: 1rem;
+  margin: 1.5rem 0 2rem;
+  color: #ccc;
+  line-height: 1.6;
 }
 
-/* Warna untuk elemen span */
-span.highlight {
-  color: #e3651d;
+/* --- Social Icons --- */
+.social-icons {
+  display: flex;
+  gap: 1.5rem; /* Jarak antar ikon */
+  margin-bottom: 2rem;
 }
 
-/* --- Home Image --- */
-.home-img {
-  border-radius: 50%;
-}
-
-.home-img img {
-  position: relative;
-  width: 32vw;
-  border-radius: 50%;
-  box-shadow: 0 0 25px solid #e3651d;
-  cursor: pointer;
-  transition: 0.2s linear;
-}
-
-.home-img img:hover {
-  transform: scale(1.05);
-}
-
-/* --- Social Icons (Sudah Diperbaiki & Digabung) --- */
 .social-icons a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 4rem;
   height: 4rem;
-  margin: 3rem 1.5rem 3rem 0;
-  
-  background-color: transparent;
-  border: 0.2rem solid #e3651d;
+  background: transparent;
+  border: 2px solid var(--main-color);
   border-radius: 50%;
-  
-  color: #e3651d;
-  font-size: 2rem;
-  
-  transition: all 0.3s ease;
+  font-size: 1.8rem;
+  color: var(--main-color);
+  transition: 0.5s ease;
 }
 
 .social-icons a:hover {
-  background-color: #e3651d;
-  color: #191919;
-  transform: scale(1.15) translateY(-5px);
-  box-shadow: 0 0 25px #e3651d;
+  background: var(--main-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 20px var(--main-color);
+  transform: translateY(-5px);
 }
 
 /* --- Button --- */
 .btn {
   display: inline-block;
-  padding: 1rem 2.8rem;
-  
-  background-color: #191919;
-  border: 2px solid #e3651d;
+  padding: 0.8rem 2.4rem;
+  background: var(--main-color);
   border-radius: 4rem;
-  
-  color: #e3651d;
-  font-size: 1.6rem;
+  box-shadow: 0 0 10px var(--main-color);
+  font-size: 1rem;
+  color: var(--bg-color);
+  letter-spacing: 0.1rem;
   font-weight: 600;
-  letter-spacing: 0.3rem;
-  
-  cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.5s ease;
 }
 
 .btn:hover {
-  background-color: #e3651d;
-  color: #191919;
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #e3651d;
+  box-shadow: none;
+  background: transparent;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
 }
 
-/* --- Typing Effect --- */
-.typing-text {
-  position: relative;
-  font-size: 3.4rem;
-  font-weight: 600;
-  display: inline-block;
+/* --- Home Image (Profil) --- */
+.home-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cursor {
-  display: inline-block;
-  margin-left: 5px;
-  font-weight: bold;
-  color: #e3651d;
-  animation: blink 0.7s infinite;
+.home-img img {
+  width: 32vw;
+  height: 32vw;
+  min-width: 250px;
+  min-height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--main-color);
+  box-shadow: 0 0 20px var(--main-color);
+  animation: floatImage 4s ease-in-out infinite;
+  background-color: #333;
 }
 
-/* Keyframes Blink (Hanya satu) */
-@keyframes blink {
-  50% {
-    opacity: 0;
+@keyframes floatImage {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 991px) {
+  header {
+    padding: 1.5rem 4%;
   }
-}
-
-/* --- Responsiveness for Tablet & Mobile --- */
-@media (max-width: 1000px) {
   .home {
-    gap: 4rem;
+    padding: 8rem 4% 2rem;
+    flex-direction: column-reverse; /* Gambar pindah ke atas di mobile */
+    gap: 2rem;
+  }
+  .home-img img {
+    width: 50vw;
+    height: 50vw;
   }
 }
 
-@media (max-width: 995px) {
-  .home {
-    flex-direction: column;
-    margin: 5rem 4rem;
-    text-align: center; /* Opsional: Teks rata tengah di mobile */
-  }
-
-  .home-content h3 {
+@media (max-width: 768px) {
+  .home-content h1 {
     font-size: 2.5rem;
   }
-
-  .home-content h1 {
-    font-size: 5rem;
-  }
-
-  .home-img img {
-    width: 70vw;
-    margin-top: 4rem;
+  nav {
+    display: none; /* Sembunyikan menu desktop di layar kecil */
   }
 }
