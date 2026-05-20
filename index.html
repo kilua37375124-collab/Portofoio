@@ -1,114 +1,82 @@
-<!DOCTYPE html>
-<html lang="id">
+ <!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Website - Ripal</title>
-    
-    <!-- Font Awesome untuk Ikon Sosial Media -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    
-    <!-- Link ke file CSS eksternal -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Portfolio Website</title>
   </head>
   <body>
     <header>
-      <a href="#" class="logo">Ripal<span>.</span></a>
+      <a href="#" class="logo">Ripal</a>
       <nav>
-        <!-- Pastikan file ini bernama index.html agar link home berfungsi, 
-             atau ganti href="#" untuk demo -->
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="#jasa">Jasa</a>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+        <a href="jasa.html">jasa</a>
       </nav>
     </header>
-
-    <!-- Tambahkan id="home" untuk navigasi scroll -->
-    <section class="home" id="home">
-      <div class="home-content">
-        <h1>Hi, It's <span>Ripal Ipandi</span></h1>
-        
-        <!-- Typing Effect Container -->
-        <h3 class="typing-text">
-          <span></span><span class="cursor">&nbsp;</span>
-        </h3>
-        
-        <p>
-          Selamat datang di website profil pribadi saya. Saya adalah seorang Alien yang suka ngoding dan membuat karya digital.
-        </p>
-        
-        <!-- Social Icons -->
-        <div class="social-icons">
-          <!-- Discord -->
-          <a href="https://discord.gg/ngMMDXkQB" target="_blank" aria-label="Discord">
-            <i class="fa-brands fa-discord"></i>
-          </a>
-          
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/ripalipandi14?utm_source=qr&igsh=MWpwNnZhbjR0bDN3dQ==" target="_blank" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          
-          <!-- TikTok -->
-          <a href="https://tiktok.com/@pallzztzy" target="_blank" aria-label="TikTok">
-            <i class="fa-brands fa-tiktok"></i>
-          </a>
-        </div>
-
-        <a href="#contact" class="btn">Hire me</a>
-      </div>
-
+    <section class="home">
       <div class="home-img">
-        <!-- Menggunakan placeholder yang lebih stabil, ganti src dengan link asli Anda jika sudah valid -->
         <img
-          src="https://picsum.photos/seed/ripal/400/400"
-          alt="Profile Picture Ripal"
+          src="https://ibb.co.com/NdtV3vMz"
+          alt="Profile Picture"
         />
+      </div>
+      <div class="home-content">
+        <h1>Hi, It's <span>Ripal ipandi</span></h1>
+        <h3 class="typing-text"><span></span><span class="cursor">|</span></h3>
+        <p>
+          Selamat datang di website profil pribadi saya
+        </p>
+        <div class="social-icons">
+         
+  
+          <a href="https://discord.gg/ngMMDXkQB"></i></a>
+          <a href="https://www.instagram.com/ripalipandi14?utm_source=qr&igsh=MWpwNnZhbjR0bDN3dQ== class="fa-brands fa-instagram"></i></a>
+          <a href="https://tiktok.com/@pallzztzy"></i>
+          
+        </div>
+        <a href="#" class="btn">Hire me</a>
       </div>
     </section>
 
     <script>
-      // Typing effect logic
-      const typingTextSpan = document.querySelector(".typing-text span");
-      const words = ["Ripal si Alienss", "Web Developer", "Creative Designer"];
+      // Typing effect for typing-text
+      const typingText = document.querySelector(".typing-text span");
+      const cursor = document.querySelector(".cursor");
+      const words = ["Ripal si alienss"];
       let wordIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
 
       function typeEffect() {
         const currentWord = words[wordIndex];
-        
-        // Logika mengetik atau menghapus
         const displayedText = isDeleting
           ? currentWord.substring(0, charIndex--)
           : currentWord.substring(0, charIndex++);
 
-        typingTextSpan.textContent = displayedText;
-
-        // Kecepatan mengetik
-        let typeSpeed = isDeleting ? 100 : 200;
+        typingText.textContent = displayedText;
+        cursor.style.left = `${typingText.offsetWidth}px`; // Update cursor position
 
         if (!isDeleting && charIndex === currentWord.length) {
-          // Jika kata selesai diketik, tunggu sebentar sebelum menghapus
           isDeleting = true;
-          typeSpeed = 2000; 
+          setTimeout(typeEffect, 2000); // Pause before deleting
         } else if (isDeleting && charIndex === 0) {
-          // Jika penghapusan selesai, pindah ke kata berikutnya
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
-          typeSpeed = 500;
+          setTimeout(typeEffect, 500); // Pause before typing next word
+        } else {
+          setTimeout(typeEffect, isDeleting ? 100 : 200);
         }
-
-        setTimeout(typeEffect, typeSpeed);
       }
 
-      // Jalankan efek ketika halaman dimuat
       document.addEventListener("DOMContentLoaded", typeEffect);
     </script>
   </body>
-</html>
+</html> 
